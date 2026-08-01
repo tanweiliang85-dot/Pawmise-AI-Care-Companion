@@ -194,7 +194,7 @@ Return a JSON array of matches matching this schema:
     const matches = JSON.parse(response.text || "[]");
     return res.json({ success: true, source: "gemini-3.6-flash", matches: matches.length > 0 ? matches : buildFallbackMatches(handlers) });
   } catch (error: any) {
-    console.warn("Match Handlers Notice (falling back to rule engine):", error?.message?.slice(0, 200));
+    console.log("[Pawmise AI Server] Match Handlers template fallback activated.");
     return res.json({
       success: true,
       source: "rule-engine-fallback",
@@ -306,7 +306,7 @@ Generate a detailed JSON object:
     const handover = JSON.parse(response.text || "{}");
     return res.json({ success: true, source: "gemini-3.6-flash", handover });
   } catch (error: any) {
-    console.warn("Generate Handover Notice (falling back to template):", error?.message?.slice(0, 200));
+    console.log("[Pawmise AI Server] Generate Handover template fallback activated.");
     return res.json({
       success: true,
       source: "template-fallback",
@@ -388,7 +388,7 @@ Generate 3 creative, distinct enrichment activities in JSON format:
     const ideas = JSON.parse(response.text || "[]");
     return res.json({ success: true, source: "gemini-3.6-flash", ideas: ideas.length > 0 ? ideas : sampleIdeas });
   } catch (error: any) {
-    console.warn("Generate Care Ideas Notice (falling back to template):", error?.message?.slice(0, 200));
+    console.log("[Pawmise AI Server] Generate Care Ideas template fallback activated.");
     return res.json({
       success: true,
       source: "template-fallback",
@@ -480,7 +480,7 @@ Return JSON:
     const adaptedIdea = JSON.parse(response.text || "{}");
     return res.json({ success: true, source: "gemini-3.6-flash", adaptedIdea });
   } catch (error: any) {
-    console.warn("Adapt Care Idea Notice (falling back to template):", error?.message?.slice(0, 200));
+    console.log("[Pawmise AI Server] Adapt Care Idea template fallback activated.");
     const isMoreCreative = mode === 'creative';
     const original = originalIdea || {
       id: 'idea-1',
