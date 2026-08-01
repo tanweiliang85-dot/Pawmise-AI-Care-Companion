@@ -1,0 +1,8 @@
+{
+  "name": "Pawmise AI Care Companion",
+  "description": "AI-powered pet-care trust platform providing explainable handler matching, lifelong pet care handovers, and personalized enrichment.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
